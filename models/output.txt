@@ -1,0 +1,694 @@
+﻿=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\appointmentModel.js
+
+const mongoose = require("mongoose");
+
+const AppointmentSchema = new mongoose.Schema(
+    {
+      userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+      astrologerId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Astrologer",
+        required: true,
+      },
+      date: {
+        type: Date,
+        required: true,
+      },
+      timeSlot: {
+        start: {
+          type: Date,
+          required: true,
+        },
+        end: {
+          type: Date,
+          required: true,
+        },
+      },
+      status: {
+        type: String,
+        enum: ["pending", "confirmed", "cancelled", "completed", "rescheduled"],
+        default: "pending",
+      },
+      type: {
+        type: String,
+        enum: ["personal", "career", "relationship", "health", "other"],
+        required: true,
+      },
+      concernDetails: {
+        type: String,
+        required: true,
+      },
+      birthDetails: {
+        date: Date,
+        time: String,
+        place: String,
+      },
+      payment: {
+        amount: {
+          type: Number,
+          required: true,
+        },
+        status: {
+          type: String,
+          enum: ["pending", "completed", "failed", "refunded"],
+          default: "pending",
+        },
+        transactionId: String,
+      },
+      reminderSent: {
+        type: Boolean,
+        default: false,
+      },
+  
+    },
+    { timestamps: true }
+  );
+  module.exports = mongoose.model("Appointment", AppointmentSchema);
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\astrologerModel.js
+
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
+
+const AstrologerSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Please provide the astrologer's name"],
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: [true, "Please provide an email"],
+      unique: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Please provide a valid email",
+      ],
+    },
+    phoneNumber: {
+      type: String,
+      required: [true, "Please provide a phone number"],
+    },
+    specialties: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Category",
+        required: true,
+      },
+    ],
+    experience: {
+      type: Number,
+      required: [true, "Please provide years of experience"],
+    },
+    bio: {
+      type: String,
+      // required: [true, "Please provide a short biography"],
+    },
+    experienceAndQualification: {
+      type: String,
+      // required: [true, "Please provide a Experience And Qualification"],
+    },
+    profileImage: {
+      type: String,
+    },
+    isAvailable: {
+      type: Boolean,
+      default: true,
+    },
+    pricing: {
+      type: Number,
+      // required: [true, "Please provide the pricing per consultation"],
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      // required: true,
+    },
+    language: [String],
+    isChatEnabled: {
+      type: Boolean,
+      default: true,
+    },
+    isCallEnabled: {
+      type: Boolean,
+      default: true, 
+    },
+    chatChargePerMinute: {
+      type: Number,
+      required: true, 
+      default: 0, 
+    },
+    callChargePerMinute: {
+      type: Number,
+      required: true, 
+      default: 0, 
+    },
+  },
+  { timestamps: true }
+);
+
+const Astrologer = mongoose.model("Astrologer", AstrologerSchema);
+
+module.exports = Astrologer;
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\BannerModel.js
+
+const mongoose = require("mongoose");
+
+const bannerSchema = new mongoose.Schema(
+  {
+    imageUrl: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      trim: true,
+      default: null,
+    },
+    description: {
+      type: String,
+      trim: true,
+      default: null,
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Banner", bannerSchema);
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\CallHistory.js
+
+const mongoose = require("mongoose");
+
+const CallHistorySchema = new mongoose.Schema(
+  {
+    astrologerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // assuming User schema has astrologers
+      required: true,
+    },
+    clientId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // assuming User schema has clients
+      required: true,
+    },
+    callStartTime: {
+      type: Date,
+      required: true,
+    },
+    callEndTime: {
+      type: Date,
+      required: true,
+    },
+    callDuration: {
+      type: Number, // Duration in minutes
+      required: true,
+    },
+    callStatus: {
+      type: String,
+      enum: ["completed", "missed", "canceled"],
+      default: "completed",
+    },
+    rating: {
+      type: Number, // Rating out of 5
+      min: 1,
+      max: 5,
+    },
+    comments: {
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("CallHistory", CallHistorySchema);
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\chatModel.js
+
+const mongoose = require("mongoose");
+
+const chatSchema = new mongoose.Schema(
+  {
+    sessionId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Session",
+      // required: true,
+    },
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", 
+      required: true,
+    },
+    receiver: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", 
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Chat", chatSchema);
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\consultationModel.js
+
+const mongoose = require("mongoose");
+
+const ConsultationSchema = new mongoose.Schema(
+    {
+      userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+      astrologerId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Astrologer",
+        required: true,
+      },
+      type: {
+        type: String,
+        enum: ["chat", "call", "video"],
+        required: true,
+      },
+      status: {
+        type: String,
+        enum: ["scheduled", "ongoing", "completed", "cancelled"],
+        default: "scheduled",
+      },
+      scheduledAt: {
+        type: Date,
+        required: true,
+      },
+      duration: {
+        type: Number, // in minutes
+        required: true,
+      },
+      charge: {
+        type: Number,
+        required: true,
+      },
+      questions: [{
+        type: String,
+        trim: true,
+      }],
+      preferences: {
+        language: {
+          type: String,
+          required: true,
+        },
+        // Additional consultation preferences
+      },
+      notes: {
+        type: String,
+        trim: true,
+      },
+      payment: {
+        status: {
+          type: String,
+          enum: ["pending", "completed", "failed", "refunded"],
+          default: "pending",
+        },
+        transactionId: String,
+        paidAmount: Number,
+      },
+    },
+    { timestamps: true }
+  );
+  module.exports =mongoose.model("Consultation", ConsultationSchema);
+
+=============================================================
+E:\WORK\ABS\Projects\Astrology\server\models\horoscopeModel.js
+
+const mongoose = require('mongoose');
+
+const horoscopeSchema = new mongoose.Schema({
+  zodiacSign: {
+    type: String,
+    required: true,
+    enum: [
+      "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+      "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+    ],
+  },
+  type: {
+    type: String,
+    required: true,
+    enum: ["Daily", "Weekly", "Monthly", "Yearly"], // The type of horoscope
+  },
+  dateRange: {
+    type: String,
+    required: true,
+  },  
+  description: {
+    type: String,
+    required: true, // Horoscope content
+  },
+  luckyNumber: {
+    type: Number,
+    required: false,
+  },
+  luckyColor: {
+    type: String,
+    required: false,
+  },
+  Image: {
+    type: String,
+  },
+
+}, { timestamps: true });
+
+module.exports = mongoose.model('Horoscope', horoscopeSchema);
+
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\notificationModel.js
+
+// models/notificationModel.js
+const mongoose = require("mongoose");
+
+const NotificationSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    // type: {
+    //   type: String,
+    //   enum: [
+    //     "appointment", 
+    //     "payment", 
+    //     "message", 
+    //     "reminder", 
+    //     "announcement",
+    //     "session",
+    //     "support",
+    //   ],
+    //   required: true,
+    // },
+    title: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
+    },
+   
+    isRead: {
+      type: Boolean,
+      default: false,
+    },
+    isSent: {
+      type: Boolean,
+      default: false,
+    },
+    priority: {
+      type: String,
+      enum: ["low", "normal", "high"],
+      default: "normal",
+    },
+    metadata: {
+      // Additional information
+      appointmentId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Appointment",
+      },
+      sessionId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Session",
+      },
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Notification", NotificationSchema);
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\plansModel.js
+
+const mongoose = require("mongoose");
+
+const planSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    price: { type: Number, required: true },
+    maxMessages: { type: Number}, 
+    maxMessageSize: { type: Number}, 
+    duration: { type: Number, required: true, default: 28  }, 
+    questions: { type: Number, required: true },
+    includesRemedies: { type: Boolean, required: true },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Plan", planSchema);
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\reviewSchema.js
+
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
+
+// Review Schema
+const ReviewSchema = new Schema(
+  {
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    astrologer: {
+      type: Schema.Types.ObjectId,
+      ref: "Astrologer",
+      required: true,
+    },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+      required: [true, "Please provide a rating between 1 and 5"],
+    },
+    comment: {
+      type: String,
+      required: [true, "Please provide a comment for your review"],
+    },
+  },
+  { timestamps: true }
+);
+
+const Review = mongoose.model("Review", ReviewSchema);
+
+module.exports = Review;
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\sessionModel.js
+
+const mongoose = require("mongoose");
+
+const sessionSchema = new mongoose.Schema(
+  {
+    sessionType: {
+      type: String,
+      enum: ["chat", "audioCall", "videoCall", "liveVideo"],
+      required: true,
+    },
+    astrologerId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Astrologer",
+      required: true,
+    },
+    clientId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    startTime: {
+      type: Date,
+      // required: true,
+    },
+    endTime: {
+      type: Date,
+    },
+    duration: {
+      type: Number, // Duration in minutes
+    },
+    chargePerMinute: {
+      type: Number,
+      // required: true, // Astrologer's rate per minute
+    },
+    totalCharge: {
+      type: Number,
+    },
+    status: {
+      type: String,
+      enum: ["completed", "ongoing", "canceled", "missed"],
+      default: "ongoing",
+    },
+    isPaid: {
+      type: Boolean,
+      default: false,
+    },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 5,
+    },
+    feedback: {
+      type: String,
+    },
+    totalMessages: { type: Number, default: 0 }, // Messages sent in this session
+    totalSize: { type: Number, default: 0 }, // Total data size in KB
+    isPlanExceeded: { type: Boolean, default: false }, // Track if limits are exceeded
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Session", sessionSchema);
+
+
+
+=======================================================================
+E:\WORK\ABS\Projects\Astrology\server\models\userModel.js
+
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const config = require("../config/config");
+
+const UserSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: [true, "Please provide an email"],
+      unique: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Please provide a valid email",
+      ],
+    },
+    password: {
+      type: String,
+      required: [
+        function () {
+          // Password is required only if the role is 'admin'
+          return this.role === "admin";
+        },
+        "Password is required for admin users.",
+      ],
+      minlength: [6, "Password must be at least 6 characters long."],
+      select: false,
+    },
+    role: {
+      type: String,
+      enum: ["customer", "admin", "astrologer"],
+      default: "customer",
+    },
+    firstName: {
+      type: String,
+    },
+    lastName: {
+      type: String,
+    },
+    gender: {
+      type: String,
+      enum: ["male", "female", "other"],
+    },
+    maritalSatus: String,
+    dateOfBirth: Date,
+    timeOfBirth: Date,
+    phoneNumber: String,
+    profilePic: String,
+    favoriteAstrologer: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Astrologer",
+      },
+    ],
+    address: {
+      city: String,
+      pinCode: Number,
+      location: String,
+      State: String,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    otp: {
+      code: String,
+      expiresAt: Date,
+    },
+    fcm: {
+      type: String
+    },
+    activePlan: {
+      planId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Plan",
+      },
+      startDate: Date,
+      endDate: Date,
+      remainingMessages: { type: Number, default: 0 },
+      remainingSize: { type: Number, default: 0 }, // KB
+    },
+    online: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
+
+UserSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+UserSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+UserSchema.methods.getSignedJwtToken = function (options = {}) {
+  const { expiresIn, secret } = options;
+
+  return jwt.sign({ id: this._id, role: this.role }, secret, { expiresIn });
+};
+
+module.exports = mongoose.model("User", UserSchema);
+
+
+=======================================================================
