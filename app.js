@@ -99,6 +99,10 @@ app.get("/", async (req, res) => {
   res.send("ASTROLOGY APP");
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 // Exception Handler Function
 function onError(error) {
   if (error.syscall !== "listen") {
