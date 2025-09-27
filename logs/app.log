@@ -1,0 +1,598 @@
+[2025-06-06T14:02:25.379] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:02:36.163] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:02:38.700] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:04:59.701] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:06:21.635] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:08:28.050] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:09:19.202] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:12:00.648] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:12:43.823] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:12:48.539] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:13:01.675] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:13:44.915] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:13:51.125] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:15:35.158] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:15:38.288] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:15:45.875] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:16:23.119] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:17:26.096] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:17:56.883] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:18:11.988] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T14:18:31.992] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T19:56:41.292] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:37:39.923] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:37:51.433] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:47:59.004] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:48:04.283] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:48:18.524] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:48:22.117] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:50:00.251] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-06T21:50:00.251] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-06T21:50:01.029] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-06T21:50:01.029] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-06T16:20:01.741Z","room_id":"6843153140a305eae2a6a082"}}
+[2025-06-06T21:50:01.272] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/6843153140a305eae2a6a082/tokens
+[2025-06-06T21:50:01.272] [INFO] AppApi - REQ PARAM:- {"name":"karan","role":"moderator","user_ref":"6842da7d5d3187cee55ae7e5","roomId":"6843153140a305eae2a6a082"}
+[2025-06-06T21:50:01.464] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-06T21:50:01.464] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0MzE1MzI1MDRmNmUyODg4NTBjYmI3Iiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0MzE1MzE0MGEzMDVlYWUyYTZhMDgyIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wNlQxNjoyMDowMS43NDFaIn0sImhvc3QiOiJzczQuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiVWJtc1hZIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiTnpkalptTmtNMlExTkRreU5UWTFPVGt3TkRZNVpUWmxNR0k1TkRGbVpqZzRaR1psTUdFM1l3PT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-06T21:53:42.611] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T21:55:11.913] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-06T21:55:11.913] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-06T21:55:12.597] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-06T21:55:12.598] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-06T16:25:13.317Z","room_id":"68431669cc7ae71968d6418b"}}
+[2025-06-06T21:55:12.854] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/68431669cc7ae71968d6418b/tokens
+[2025-06-06T21:55:12.854] [INFO] AppApi - REQ PARAM:- {"name":"karan","role":"moderator","user_ref":"6842da7d5d3187cee55ae7e5","roomId":"68431669cc7ae71968d6418b"}
+[2025-06-06T21:55:13.056] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-06T21:55:13.056] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0MzE2Njk1MDRmNmUyODg4NTBjYmM1Iiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0MzE2NjljYzdhZTcxOTY4ZDY0MThiIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wNlQxNjoyNToxMy4zMTdaIn0sImhvc3QiOiJzczQuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiZWZTaTRNIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiWVRFeU1UaGlPRE0zWXpCaE4yWTNNMk0xTm1Ga00yTmhOakEyTWpobFpHUmpZalF3TTJVMVl3PT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-06T22:03:32.337] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:03:50.432] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:03:58.880] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:04:10.085] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:04:13.209] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:04:15.852] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:04:20.302] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:04:39.795] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:04:42.954] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:04:56.578] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:05:05.346] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:09:07.298] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:09:26.770] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:09:33.846] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:09:36.482] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:09:40.316] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:09:52.501] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:10:57.380] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:11:26.951] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:20:39.472] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:20:44.099] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:20:56.457] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:21:34.195] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:21:47.976] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:22:21.643] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:22:24.533] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:22:28.509] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:22:34.620] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:22:55.122] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:23:08.585] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:24:46.043] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:33:56.532] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:34:17.823] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:36:09.513] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:51:18.478] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:51:25.959] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:51:35.571] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:51:40.843] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:51:45.751] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:51:51.502] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:51:56.675] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T22:52:18.800] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:25:02.719] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:29:39.088] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:30:18.612] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:30:44.189] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:30:49.913] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:31:05.533] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:31:14.220] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:31:24.041] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:31:27.617] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:31:30.499] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-06T23:31:37.081] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:03:17.161] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:03:32.720] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:03:36.753] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:04:01.252] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:04:07.131] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:12:41.666] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:13:01.908] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:19:29.345] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:19:37.043] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:19:52.571] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:21:09.787] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:21:13.619] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:21:21.023] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:21:39.966] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:21:50.935] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:23:13.352] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:25:45.667] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:26:16.127] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:26:36.743] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:35:11.838] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:35:15.752] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:35:40.659] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:36:50.387] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:38:31.269] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:39:31.441] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T00:40:00.174] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:14:18.362] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:14:52.255] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:15:17.992] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:15:22.270] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:15:25.727] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:15:28.904] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:20:01.075] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:20:12.083] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:21:55.441] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:22:04.485] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:22:27.942] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:22:39.486] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:22:50.897] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:23:04.371] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:23:34.413] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:35:08.043] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:35:12.539] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:35:36.270] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:35:46.466] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:35:59.726] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:36:23.132] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T01:36:28.346] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T17:40:06.219] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:04:30.620] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:04:36.186] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:12:37.264] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T22:12:37.265] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T22:12:38.172] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:12:38.173] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T16:42:39.247Z","room_id":"68446bff504f6e288850d3c8"}}
+[2025-06-07T22:12:38.418] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/68446bff504f6e288850d3c8/tokens
+[2025-06-07T22:12:38.419] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"68446bff504f6e288850d3c8"}
+[2025-06-07T22:12:38.580] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:12:38.580] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDZiZmY0MGEzMDVlYWUyYTZhODc4Iiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDZiZmY1MDRmNmUyODg4NTBkM2M4IiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxNjo0MjozOS4yNDdaIn0sImhvc3QiOiJzczMuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiRXN0emU2IiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiTXpGalpEZGtaR1U1TkRneU16YzJOR0U0WkRjMFpEQXlOelJqTVdZd1pqRTNaRE13TVRBeFlRPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T22:15:33.249] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T22:15:33.250] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T22:15:33.992] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:15:33.992] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T16:45:35.015Z","room_id":"68446cafcc7ae71968d649c2"}}
+[2025-06-07T22:15:34.277] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/68446cafcc7ae71968d649c2/tokens
+[2025-06-07T22:15:34.277] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"68446cafcc7ae71968d649c2"}
+[2025-06-07T22:15:34.464] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:15:34.464] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDZjYWY0MGEzMDVlYWUyYTZhODdiIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDZjYWZjYzdhZTcxOTY4ZDY0OWMyIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxNjo0NTozNS4wMTVaIn0sImhvc3QiOiJzczQuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiU1ViRnBHIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiWW1VMk56QmpNelJtTVRKbVlUZGhaVEZqWW1JNE9ERTFOek14WmpjMU4yTTJNamN4T1dZMlpnPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T22:19:39.520] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:20:00.866] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:20:05.942] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:20:15.584] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:29:51.987] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:31:59.558] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:33:55.403] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T22:33:55.403] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T22:33:56.180] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:33:56.180] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T17:03:57.197Z","room_id":"684470fd2dd57d72829d50fb"}}
+[2025-06-07T22:33:56.446] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/684470fd2dd57d72829d50fb/tokens
+[2025-06-07T22:33:56.446] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"684470fd2dd57d72829d50fb"}
+[2025-06-07T22:33:56.650] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:33:56.650] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDcwZmQ1MDRmNmUyODg4NTBkM2UzIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDcwZmQyZGQ1N2Q3MjgyOWQ1MGZiIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxNzowMzo1Ny4xOTdaIn0sImhvc3QiOiJzczEuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiaHpwU3VYIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiWVRRMk5UUmhNak13WW1Fd1pHUTJZVGszTWpVMU0yVXdaR05oTjJNNVpUZGhZbUUwTm1Fek9BPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T22:38:04.738] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:38:29.377] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:40:51.547] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T22:40:51.547] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T22:40:52.220] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:40:52.221] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T17:10:53.250Z","room_id":"6844729ddf26fddc67192c51"}}
+[2025-06-07T22:41:16.481] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T22:41:16.481] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T22:41:16.869] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:41:16.869] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T17:11:17.903Z","room_id":"684472b5df26fddc67192c52"}}
+[2025-06-07T22:41:17.107] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/684472b5df26fddc67192c52/tokens
+[2025-06-07T22:41:17.107] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"684472b5df26fddc67192c52"}
+[2025-06-07T22:41:17.261] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:41:17.261] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDcyYjYwN2NkNmEzMmMyNmUzNTNhIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDcyYjVkZjI2ZmRkYzY3MTkyYzUyIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxNzoxMToxNy45MDNaIn0sImhvc3QiOiJzczEuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiS0Nha3ZLIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiTmpJNE0yRXhaR0V3WTJNMk5UQTVOVFZsTURCaE1HRTFNbVV4TWpZd09UYzVOemMzTkdOaU13PT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T22:43:00.216] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T22:43:00.217] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T22:43:00.869] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:43:00.869] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T17:13:01.874Z","room_id":"6844731d504f6e288850d3f6"}}
+[2025-06-07T22:43:01.184] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/6844731d504f6e288850d3f6/tokens
+[2025-06-07T22:43:01.184] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"6844731d504f6e288850d3f6"}
+[2025-06-07T22:43:01.371] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T22:43:01.371] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDczMWUyZGQ1N2Q3MjgyOWQ1MTA2Iiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDczMWQ1MDRmNmUyODg4NTBkM2Y2IiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxNzoxMzowMS44NzRaIn0sImhvc3QiOiJzczMuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoibWtUY1ZSIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiWlRrNE4ySmlZemRsTXpCbE5qUXhNelZpWkRReE5XSTFNVFF4WldJMFkySTJaRGcwTWpZMFpBPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T22:49:46.618] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:05.087] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:09.400] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:12.604] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:20.661] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:23.974] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:30.307] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:34.234] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:44.835] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:49.171] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:57:56.161] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:58:03.821] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:58:38.715] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:58:44.276] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:59:07.422] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:59:13.847] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:59:38.806] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T22:59:47.515] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:00:47.110] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:00:50.727] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:00:55.043] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:01:00.975] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:01:04.061] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:01:09.825] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:01:16.959] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:01:29.140] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:01:35.119] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:01:41.059] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:02:52.676] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:02:56.304] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:02:59.192] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:11.488] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:14.850] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:18.642] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:21.991] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:25.111] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:29.248] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:45.326] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:53.506] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:03:58.012] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:04:14.131] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:04:23.131] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:04:27.708] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:04:42.724] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:06:04.757] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:07:50.245] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:07:57.603] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:08:03.208] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:08:12.735] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:08:39.141] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:12:18.598] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:12:30.577] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:12:55.365] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:13:20.970] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:13:24.431] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:14:12.455] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:14:24.905] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:14:28.855] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:14:35.405] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:14:51.121] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:15:03.228] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:15:11.114] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:15:19.725] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:15:23.273] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:15:34.624] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:15:43.500] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:15:47.365] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:16:15.322] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:16:20.567] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:16:36.293] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:17:06.499] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:17:09.517] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:17:27.476] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:17:47.553] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:17:56.386] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:18:07.138] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:19:44.832] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:19:52.859] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:20:18.720] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:20:39.292] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:21:06.360] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:21:13.316] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:09.060] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:17.419] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:23.190] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:26.562] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:31.641] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:38.913] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:46.005] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:22:54.306] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:38:33.357] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:38:54.113] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-07T23:44:04.170] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T23:44:04.170] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T23:44:04.996] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:44:04.996] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:14:05.950Z","room_id":"6844816d504f6e288850d459"}}
+[2025-06-07T23:44:05.226] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/6844816d504f6e288850d459/tokens
+[2025-06-07T23:44:05.227] [INFO] AppApi - REQ PARAM:- {"name":"Sunny","role":"moderator","user_ref":"68446a5803c47f95d4d98eee","roomId":"6844816d504f6e288850d459"}
+[2025-06-07T23:44:05.411] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:44:05.411] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDgxNmU0MGEzMDVlYWUyYTZhOGZkIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDgxNmQ1MDRmNmUyODg4NTBkNDU5IiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxODoxNDowNS45NTBaIn0sImhvc3QiOiJzczQuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiMXpXbkdIIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiTURrNVlXRm1aVEV3WkdZNE56QTBabU5tWVROaE1tVTFOekJtWlRsbFpUaGpNbVJqWTJGa05BPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T23:44:06.137] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T23:44:06.137] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T23:44:06.325] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:44:06.325] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:14:07.284Z","room_id":"6844816f3dfb69218b5b7eed"}}
+[2025-06-07T23:47:42.108] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T23:47:42.108] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T23:47:42.619] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:47:42.619] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:17:43.574Z","room_id":"68448247c9fd12f22aaf8a9d"}}
+[2025-06-07T23:47:42.917] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/68448247c9fd12f22aaf8a9d/tokens
+[2025-06-07T23:47:42.917] [INFO] AppApi - REQ PARAM:- {"name":"Sunny","role":"moderator","user_ref":"68446a5803c47f95d4d98eee","roomId":"68448247c9fd12f22aaf8a9d"}
+[2025-06-07T23:47:43.124] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:47:43.124] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDgyNDgwN2NkNmEzMmMyNmUzNTkzIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDgyNDdjOWZkMTJmMjJhYWY4YTlkIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxODoxNzo0My41NzRaIn0sImhvc3QiOiJzczEuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiQlh6ekVqIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiTmpVeE0yTTBPREUzWTJGaFpXRXlNREEwTkRZNU1USXdOMk0wTkdRelptVTFNR1F4TVRWbE5RPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T23:49:44.834] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T23:49:44.835] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T23:49:45.456] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:49:45.456] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:19:46.395Z","room_id":"684482c22dd57d72829d515d"}}
+[2025-06-07T23:49:45.733] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/684482c22dd57d72829d515d/tokens
+[2025-06-07T23:49:45.733] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"684482c22dd57d72829d515d"}
+[2025-06-07T23:49:45.906] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:49:45.906] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDgyYzJjYzdhZTcxOTY4ZDY0YTNlIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDgyYzIyZGQ1N2Q3MjgyOWQ1MTVkIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxODoxOTo0Ni4zOTVaIn0sImhvc3QiOiJzczIuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiclhQR05MIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiWm1NNVptWmlaVE0wTldOak9UUTROVFU1TURNd01XTmxNVGRoTnpKa05EY3lPR1k0TW1FeVl3PT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-07T23:59:09.047] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-07T23:59:09.047] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-07T23:59:09.647] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:59:09.647] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:29:10.584Z","room_id":"684484f63dfb69218b5b7f06"}}
+[2025-06-07T23:59:09.879] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/684484f63dfb69218b5b7f06/tokens
+[2025-06-07T23:59:09.879] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"684484f63dfb69218b5b7f06"}
+[2025-06-07T23:59:10.067] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-07T23:59:10.067] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDg0ZjcyZGQ1N2Q3MjgyOWQ1MTZiIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDg0ZjYzZGZiNjkyMThiNWI3ZjA2IiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxODoyOToxMC41ODRaIn0sImhvc3QiOiJzczEuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiZ1lidDEyIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiT1dRMU9UZ3hNMlUxWVdFek1EZzVPVEl3WWpZeE1UQmhaV05qT1RBellXVTNOalUxT0RBM053PT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-08T00:13:06.181] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-08T00:13:06.181] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-08T00:13:06.817] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-08T00:13:06.817] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:43:07.747Z","room_id":"6844883b40a305eae2a6a93c"}}
+[2025-06-08T00:13:07.051] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/6844883b40a305eae2a6a93c/tokens
+[2025-06-08T00:13:07.052] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"6844883b40a305eae2a6a93c"}
+[2025-06-08T00:13:07.220] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-08T00:13:07.221] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDg4M2MzZGZiNjkyMThiNWI3ZjI5Iiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDg4M2I0MGEzMDVlYWUyYTZhOTNjIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxODo0MzowNy43NDdaIn0sImhvc3QiOiJzczMuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiRXBWTnVpIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiTW1Vd1pqTTJNVGd4TVdNMVlUVTNZelV3WmpZNE1HSTVaVGsxTkRVd01EbGhOell6WkROa1pBPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-08T00:20:06.984] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:20:10.155] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:20:40.897] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:20:46.300] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:20:52.034] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:21:02.650] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:23:11.310] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-08T00:23:11.311] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-08T00:23:12.056] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-08T00:23:12.056] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:53:12.979Z","room_id":"68448a98cc7ae71968d64a7b"}}
+[2025-06-08T00:23:12.415] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/68448a98cc7ae71968d64a7b/tokens
+[2025-06-08T00:23:12.415] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"68448a98cc7ae71968d64a7b"}
+[2025-06-08T00:23:12.607] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-08T00:23:12.607] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDhhOTkzZGZiNjkyMThiNWI3ZjJlIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDhhOThjYzdhZTcxOTY4ZDY0YTdiIiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxODo1MzoxMi45NzlaIn0sImhvc3QiOiJzczQuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoid3pTRDZOIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiTW1Vd05qRTVOMlpoWVdRMVpHSmlNamxsTmpjeE56UmxOVGMzWXpSaVpUTTRORGt6WkdVME1RPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-08T00:27:42.423] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/
+[2025-06-08T00:27:42.423] [INFO] AppApi - REQ PARAM:- {"name":"Demo Room","settings":{"description":"Voice-Calling","scheduled":false,"participants":"10","duration":"90","active_talker":true,"auto_recording":false,"adhoc":true,"mode":"group","moderators":"4","quality":"SD","media_zone":"IN","knock":false,"canvas":true,"max_active_talkers":"6","screen_share":true,"abwd":true},"sip":{"enabled":false},"data":{"name":"Demo"},"owner_ref":"Demo"}
+[2025-06-08T00:27:43.009] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-08T00:27:43.009] [INFO] AppApi - RESPONSE DATA:- {"result":0,"room":{"name":"Demo Room","service_id":"66974d6bc60ad6c652f9cb28","owner_ref":"Demo","settings":{"description":"Voice-Calling","mode":"group","scheduled":false,"adhoc":true,"duration":"90","participants":"10","auto_recording":false,"screen_share":true,"canvas":true,"abwd":true,"media_configuration":"default","quality":"SD","moderators":"4","viewers":0,"active_talker":true,"max_active_talkers":"6","knock":false,"media_zone":"IN","encryption":false,"watermark":false,"single_file_recording":false,"media_type":"audio_only"},"sip":{"enabled":false},"data":{"name":"Demo"},"created":"2025-06-07T18:57:43.897Z","room_id":"68448ba72dd57d72829d5196"}}
+[2025-06-08T00:27:43.267] [INFO] AppApi - REQ URI:- POST api.enablex.io:443/v1/rooms/68448ba72dd57d72829d5196/tokens
+[2025-06-08T00:27:43.267] [INFO] AppApi - REQ PARAM:- {"name":"krn","role":"moderator","user_ref":"6843d70a8c0fe76b140eaf62","roomId":"68448ba72dd57d72829d5196"}
+[2025-06-08T00:27:43.444] [INFO] AppApi - HTTP STATUS: 200
+[2025-06-08T00:27:43.444] [INFO] AppApi - RESPONSE DATA:- {"result":0,"token":"eyJ0b2tlbklkIjoiNjg0NDhiYTg1MDRmNmUyODg4NTBkNDlmIiwicm9vbU1ldGEiOnsiX2lkIjoiNjg0NDhiYTcyZGQ1N2Q3MjgyOWQ1MTk2IiwibmFtZSI6IkRlbW8gUm9vbSIsInNlcnZpY2VfaWQiOiI2Njk3NGQ2YmM2MGFkNmM2NTJmOWNiMjgiLCJvd25lcl9yZWYiOiJEZW1vIiwic2V0dGluZ3MiOnsiZGVzY3JpcHRpb24iOiJWb2ljZS1DYWxsaW5nIiwibW9kZSI6Imdyb3VwIiwic2NoZWR1bGVkIjpmYWxzZSwiYWRob2MiOnRydWUsImR1cmF0aW9uIjoiOTAiLCJwYXJ0aWNpcGFudHMiOiIxMCIsImF1dG9fcmVjb3JkaW5nIjpmYWxzZSwic2NyZWVuX3NoYXJlIjp0cnVlLCJjYW52YXMiOnRydWUsImFid2QiOnRydWUsIm1lZGlhX2NvbmZpZ3VyYXRpb24iOiJkZWZhdWx0IiwicXVhbGl0eSI6IlNEIiwibW9kZXJhdG9ycyI6IjQiLCJ2aWV3ZXJzIjowLCJhY3RpdmVfdGFsa2VyIjp0cnVlLCJtYXhfYWN0aXZlX3RhbGtlcnMiOiI2Iiwia25vY2siOmZhbHNlLCJtZWRpYV96b25lIjoiSU4iLCJlbmNyeXB0aW9uIjpmYWxzZSwid2F0ZXJtYXJrIjpmYWxzZSwic2luZ2xlX2ZpbGVfcmVjb3JkaW5nIjpmYWxzZSwibWVkaWFfdHlwZSI6ImF1ZGlvX29ubHkifSwic2lwIjp7ImVuYWJsZWQiOmZhbHNlfSwiZGF0YSI6eyJuYW1lIjoiRGVtbyJ9LCJjcmVhdGVkIjoiMjAyNS0wNi0wN1QxODo1Nzo0My44OTdaIn0sImhvc3QiOiJzczEuZW5hYmxleC5pbzo0NDMiLCJzZWN1cmUiOnRydWUsImxvZ0lkIjoiNk1ZMWZUIiwiY3VycmVudFJvb21Nb2RlIjoiZ3JvdXAiLCJnYXRld2F5IjoiIiwic2lnbmF0dXJlIjoiT0RReFlqbG1ORGN4TmpjMk1Ua3dOMlF4TWpRNFl6VTVNekZrTjJSaU1EVTFPVGt5WkdZd01nPT0iLCJkYXRhIjpbXSwiZXZlbnRTZXJ2ZXIiOnsidXJsIjoiZXMuZW5hYmxleC5pbyJ9fQ=="}
+[2025-06-08T00:29:41.373] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:30:03.102] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:30:21.164] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:30:26.410] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T00:31:03.534] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:09:21.540] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:09:27.649] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:10:17.137] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:10:22.165] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:10:25.533] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:10:59.093] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:11:08.505] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:11:11.852] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:11:32.968] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T01:11:46.299] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T02:54:55.309] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T02:54:58.658] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T02:58:04.496] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T02:58:15.782] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T02:59:58.260] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:09.486] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:12.366] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:14.633] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:20.645] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:23.492] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:25.531] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:40.977] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:48.096] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:50.415] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:00:56.037] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:00.893] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:02.793] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:08.369] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:15.538] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:18.926] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:22.047] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:24.326] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:01:27.529] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:02:15.982] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:02:24.074] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:02:27.438] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:02:35.773] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:02:41.883] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:02:49.881] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:03:04.984] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:03:07.009] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:03:10.098] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:03:12.242] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:03:56.083] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:04:45.017] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:04:52.156] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:05:02.852] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:05:05.684] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:06:53.318] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:02.992] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:26.397] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:36.572] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:41.968] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:52.543] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:55.031] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:57.251] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:07:59.564] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:08:03.807] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:08:08.595] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:08:11.943] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:09:01.914] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:09:08.740] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:09:10.910] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:09:32.489] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:09:50.413] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:09:55.445] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:09:57.902] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:07.092] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:10.149] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:13.952] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:16.551] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:18.695] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:21.982] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:33.109] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:36.367] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:41.728] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:48.262] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:10:58.313] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:11:01.537] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:11:14.175] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:11:37.149] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:11:39.820] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:11:53.620] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:12:01.133] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:12:02.909] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:12:05.587] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:12:52.113] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:13:00.060] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:13:56.456] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:02.867] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:06.214] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:08.281] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:12.372] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:16.209] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:41.379] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:50.603] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:14:52.600] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:00.358] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:06.237] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:21.899] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:30.170] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:32.533] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:40.275] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:56.158] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:15:59.645] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:16:12.371] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:16:27.505] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:17:48.676] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:08.236] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:27.791] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:30.641] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:36.900] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:41.752] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:51.298] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:54.432] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:18:58.772] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:19:00.633] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:19:42.339] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:19:47.189] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:20:07.850] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:20:29.127] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:20:45.583] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:20:59.669] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:21:07.926] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:24.763] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:30.774] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:32.763] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:35.009] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:38.261] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:43.132] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:46.321] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:51.145] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:53.127] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:56.425] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:22:58.678] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:23:40.879] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:23:43.341] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:23:46.417] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:23:50.945] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:23:56.377] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:01.305] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:05.144] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:19.670] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:23.285] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:26.131] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:34.160] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:39.150] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:24:41.899] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:00.361] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:04.494] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:13.215] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:24.022] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:30.717] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:33.551] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:41.127] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:55.576] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:25:58.751] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:04.031] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:18.802] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:23.946] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:27.750] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:32.814] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:38.830] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:43.751] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:26:49.964] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:00.277] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:07.287] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:12.901] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:17.430] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:21.705] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:29.756] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:35.934] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:40.637] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:27:44.640] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:28:09.436] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:28:12.413] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:28:15.515] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:28:33.900] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:11.099] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:18.373] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:23.439] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:25.838] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:32.898] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:43.191] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:48.584] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:53.031] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:29:58.726] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:02.833] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:06.511] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:08.694] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:10.754] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:13.115] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:17.731] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:20.439] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:40.679] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:56.630] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:30:59.921] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:31:02.570] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:31:04.733] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:31:46.594] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:31:52.011] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:01.186] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:05.147] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:07.568] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:09.668] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:15.903] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:35.043] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:40.784] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:32:51.919] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:33:01.392] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:33:18.091] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:33:21.708] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:34:43.151] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:34:54.536] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:35:00.122] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:35:02.340] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:35:13.295] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:36:08.519] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:36:13.991] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:36:44.936] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:36:50.114] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:36:54.326] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:37:01.346] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:37:03.861] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:38:26.768] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:40:23.245] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:40:25.420] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:40:52.559] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:41:04.719] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:41:15.585] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:41:24.377] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:41:36.032] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:41:38.968] [INFO] AppApi - Server started. Listening on Port 4500
+[2025-06-08T03:41:50.045] [INFO] AppApi - Server started. Listening on Port 4500
