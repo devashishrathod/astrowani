@@ -41,9 +41,9 @@ require("dotenv").config();
 
 const app = express();
 
-const log = require("./utils/logger/logger.js").logger;
+// const log = require("./utils/logger/logger.js").logger;
 
-const logger = log.getLogger("AppApi");
+// const logger = log.getLogger("AppApi");
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
@@ -131,7 +131,7 @@ function onListening() {
   console.log(`Listening on ${bind}`);
 }
 
-logger.info(`Server started. Listening on Port ${PORT}`);
+// logger.info(`Server started. Listening on Port ${PORT}`);
 httpServer.on("error", onError);
 httpServer.on("listening", onListening);
 
