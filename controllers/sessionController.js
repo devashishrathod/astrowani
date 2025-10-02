@@ -360,7 +360,7 @@ exports.getConnectedClients = async (req, res) => {
       {
         $lookup: {
           from: 'users', // Assuming your users collection is named 'users'
-          localField: 'customerId',
+          localField: 'clientId',
           foreignField: '_id',
           as: 'clientDetails'
         }

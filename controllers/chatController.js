@@ -149,11 +149,13 @@ exports.getAllChatHistory = async (req, res) => {
       return res.status(404).json({ success: false, msg: 'Astrologer not found' })
     }
     const sessions = await Session.find({
-      astrologerId: checkAstrologer?._id,
+      astrologerId: astrologerId,
       sessionType: "chat",
       status: "ongoing"
-    }).populate("clientId", "name email firstName lastName profilePic").sort({ updatedAt: -1 });
+    })
+    .populate("clientId", "name email firstName lastName profilePic").sort({ updatedAt: -1 });
 
+    console.log("sessions: ", sessions);
     // Step 2: Build user list with sessionId and socket roomId
     const chatUsers = sessions.map((session) => {
       return {
