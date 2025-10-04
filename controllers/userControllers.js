@@ -189,7 +189,6 @@ exports.verifyOTP = async (req, res) => {
     // const token = jwt.sign({ id: user._id }, process.env.RESET_SECRET, {
     //   expiresIn: "10m",
     // });
-
     const token = user.getSignedJwtToken({
       expiresIn: "30d",
       secret: process.env.JWT_SECRET,

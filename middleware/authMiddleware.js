@@ -5,19 +5,21 @@ const config = require("../config/config");
 
 exports.protect = async (req, res, next) => {
   let token;
-
-  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
     token = req.headers.authorization.split(" ")[1];
   }
   // console.log("1");
   console.log("token: ", token);
-
   if (!token) {
-    return res.status(401).json({ success: false, message: "Not authorized to access this route" });
+    return res
+      .status(401)
+      .json({ success: false, message: "Not authorized to access this route" });
   }
   try {
     // console.log(token);
-
     const decoded = jwt.verify(token, config.JWT_SECRET);
     console.log("decoded: ", decoded);
     // console.log("Token issued at:", new Date(decoded.iat * 1000).toISOString());
@@ -26,14 +28,20 @@ exports.protect = async (req, res, next) => {
     //   new Date(decoded.exp * 1000).toISOString()
     // );
     req.user = await User.findById(decoded.id);
-    // console.log("req.user: ", req.user);
-
+    console.log("req.user: ", req.user);
     if (!req.user) {
-      return res.status(401).json({ success: false, message: "Not authorized to access this route", });
+      return res
+        .status(401)
+        .json({
+          success: false,
+          message: "Not authorized to access this route",
+        });
     }
     next();
   } catch (error) {
-    return res.status(401).json({ success: false, message: "Not authorized to access this route" });
+    return res
+      .status(401)
+      .json({ success: false, message: "Not authorized to access this route" });
   }
 };
 
@@ -42,7 +50,12 @@ exports.authorize = (...roles) => {
     // console.log(req.user.role);
 
     if (!roles.includes(req.user.role)) {
-      return res.status(403).json({ success: false, message: "User role is not authorized to access this route", });
+      return res
+        .status(403)
+        .json({
+          success: false,
+          message: "User role is not authorized to access this route",
+        });
     }
     next();
   };
@@ -53,13 +66,12 @@ exports.socketAuthenticator = async (socket, next) => {
     // console.log(" =================== socketAuthenticator =================== ");
     // console.log("socket.handshake.headers: ", socket.handshake);
 
-
     // Get the token from socket handshake auth
     // const token = socket.handshake.headers.auth?.split(' ')[1];
     const token = socket.handshake.auth.token;
 
     // console.log("token: ", token);
-    const postToken = socket.handshake.headers.auth
+    const postToken = socket.handshake.headers.auth;
     console.log("postToken: ", postToken);
 
     /*  if (!token) {
@@ -75,7 +87,7 @@ exports.socketAuthenticator = async (socket, next) => {
     const user = await User.findById(decoded.id);
 
     if (!user) {
-      return next(new Error('Authentication error: User not found'));
+      return next(new Error("Authentication error: User not found"));
     }
 
     // Attach the user to the socket
@@ -83,16 +95,16 @@ exports.socketAuthenticator = async (socket, next) => {
 
     next();
   } catch (error) {
-    console.error('Socket authentication error:', error);
+    console.error("Socket authentication error:", error);
 
-    if (error.name === 'JsonWebTokenError') {
-      return next(new Error('Authentication error: Invalid token'));
+    if (error.name === "JsonWebTokenError") {
+      return next(new Error("Authentication error: Invalid token"));
     }
 
-    if (error.name === 'TokenExpiredError') {
-      return next(new Error('Authentication error: Token expired'));
+    if (error.name === "TokenExpiredError") {
+      return next(new Error("Authentication error: Token expired"));
     }
 
-    return next(new Error('Authentication error'));
+    return next(new Error("Authentication error"));
   }
 };
