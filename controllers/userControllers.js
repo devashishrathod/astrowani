@@ -210,28 +210,22 @@ exports.mobileOTPRequest = async (req, res) => {
     " ================================= mobileOTPRequest ================================"
   );
   console.log("req.body: ", req.body);
-
   const mobile = req.body?.mobile;
   try {
     let checkUser = await User.findOne({ mobile: mobile });
     if (!checkUser) {
       const freePlan = await Plan.findOne({ name: "Free" });
-
       if (!freePlan) {
         return res.status(400).json({
           success: false,
           message: "Free plan not found in the system.",
         });
       }
-
-      // Calculate plan duration and dates
-      const durationInDays = freePlan.duration || 28; // Default to 28 days
+      const durationInDays = freePlan.duration || 28;
       const startDate = new Date();
       const endDate = new Date(
         startDate.getTime() + durationInDays * 24 * 60 * 60 * 1000
-      ); // Add duration in milliseconds
-
-      // Create a new user with the Free plan
+      ); 
       checkUser = new User({
         mobile,
         activePlan: {
@@ -262,11 +256,9 @@ exports.mobileOTPRequest = async (req, res) => {
 exports.verifyMobileOtp = async (req, res) => {
   console.log(" ====================== verifyMobileOtp ====================");
   console.log("req.body: ", req.body);
-
   const mobile = req.body?.mobile;
   const otp = req.body?.otp;
   const fcmToken = req.body?.fcmToken;
-
   try {
     const checkUser = await User.findOne({ mobile: mobile });
     if (!checkUser) {
@@ -278,14 +270,10 @@ exports.verifyMobileOtp = async (req, res) => {
       length: 6,
     });
     const result = await otpService.verify(`+91${mobile}`, otp);
-
-    // console.log("result: ", result);
     if (result.message != "OTP verified success") {
       return res.status(400).json({ msg: result.message, success: false });
     }
-    if (fcmToken) {
-      checkUser.fcm = fcmToken;
-    }
+    if (fcmToken) checkUser.fcm = fcmToken;
     const token = checkUser.getSignedJwtToken({
       expiresIn: "30d",
       secret: process.env.JWT_SECRET,

@@ -173,27 +173,25 @@ io.on("connection", (socket) => {
   // Join room
   socket.on("join_room", async (roomId) => {
     console.log("roomId: ", roomId);
-
     roomID = roomId;
     socket.join(roomID);
     console.log(`Socket ${socket.id} joined users room-id ${roomID}`);
-
     // Fetch the user's role and details (assuming socket.user is set via authentication middleware)
-    const user = await userModel.findById(socket.user._id);
-    if (user) {
-      if (user.role === "customer" || user.role === "user") {
-        // Send Welcome Message
-        const welcomeMessage = {
-          sender: "System", // Can be replaced with a system bot ID or astrologer's ID
-          message:
-            "Welcome to Astrowani India! Our expert astrologers are here to guide you through the planets and nakshatras.",
-          hindiMessage:
-            "एस्ट्रो में आपका स्वागत है! हमारे विशेषज्ञ ज्योतिषी आपको ग्रहों व नक्षत्रों के माध्यम से मार्गदर्शन करने के लिए तैयार हैं।",
-        };
+    // const user = await userModel.findById(socket.user._id);
+    // if (user) {
+    //   if (user.role === "customer" || user.role === "user") {
+    //     // Send Welcome Message
+    //     const welcomeMessage = {
+    //       sender: "System", // Can be replaced with a system bot ID or astrologer's ID
+    //       message:
+    //         "Welcome to Astrowani India! Our expert astrologers are here to guide you through the planets and nakshatras.",
+    //       hindiMessage:
+    //         "एस्ट्रो में आपका स्वागत है! हमारे विशेषज्ञ ज्योतिषी आपको ग्रहों व नक्षत्रों के माध्यम से मार्गदर्शन करने के लिए तैयार हैं।",
+    //     };
 
-        io.to(roomID).emit("receiveMessage", welcomeMessage);
-      }
-    }
+    //     io.to(roomID).emit("receiveMessage", welcomeMessage);
+    //   }
+    // }
   });
   // Handle message
   socket.on("sendMessage", async ({ roomId, sessionId, receiver, message }) => {
