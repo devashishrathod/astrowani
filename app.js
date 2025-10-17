@@ -1,5 +1,14 @@
 const express = require("express");
 const ngrok = require("ngrok");
+const cors = require("cors");
+const morgan = require("morgan");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+const msg91 = require("msg91").default;
+require("dotenv").config();
+
+const app = express();
+const PORT = process.env.PORT || 4500;
 const connectDB = require("./config/dbConnection.js");
 const userRoutes = require("./routes/userRoutes.js");
 const categoryRoutes = require("./routes/categoryRoutes.js");
@@ -26,9 +35,6 @@ const astrologerRequestRoutes = require("./routes/astrologerRequestRoutes.js");
 const freeServicesRoutes = require("./routes/FreeServices/freeServicesRoutes.js");
 const astroServicesRoutes = require("./routes/astroServices/astroServicesRoutes.js");
 const audioVidedoCallingRoutes = require("./routes/audioVideoCallingRoute.js");
-const cors = require("cors");
-const { createServer } = require("http");
-const { Server } = require("socket.io");
 const Chat = require("./models/chatModel.js");
 const {
   protect,
@@ -36,10 +42,6 @@ const {
 } = require("./middleware/authMiddleware.js");
 const enquiryRouter = require("./routes/enquiry.js");
 const userModel = require("./models/userModel.js");
-const msg91 = require("msg91").default;
-require("dotenv").config();
-
-const app = express();
 
 const log = require("./utils/logger/logger.js").logger;
 
@@ -51,15 +53,11 @@ const io = new Server(httpServer, {
     origin: "*",
   },
 });
-// Connect to database
 connectDB();
-
-// Use CORS middleware
 app.use(cors());
-// Middleware
+app.use(morgan("dev"));
 app.use(express.json());
 
-// Routes
 app.use("/api/blogs", blogRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/categories", categoryRoutes);
@@ -87,13 +85,10 @@ app.use("/api/feedback", feedbackRoutes);
 app.use("/api/enquiry", enquiryRouter);
 app.use("/api/audiovideo", audioVidedoCallingRoutes);
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: "Something went wrong" });
 });
-
-const PORT = process.env.PORT || 4500;
 
 app.get("/", async (req, res) => {
   res.send("ASTROLOGY APP");
@@ -103,7 +98,6 @@ app.get("/health", (req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
-// Exception Handler Function
 function onError(error) {
   if (error.syscall !== "listen") {
     throw error;
@@ -124,7 +118,6 @@ function onError(error) {
   }
 }
 
-// Function: To confirm Service is listening on the configured Port
 function onListening() {
   const addr = httpServer.address();
   const bind = typeof addr === "string" ? `pipe ${addr}` : `port ${addr.port}`;
@@ -137,17 +130,14 @@ httpServer.on("listening", onListening);
 
 app.use(express.urlencoded({ extended: true }));
 
-// Middleware for WebSocket Authentication
 io.use((socket, next) => {
   socketAuthenticator(socket, next);
 });
 
-// Generate room ID
 const generateRoomId = (user1, user2) => {
   return [user1, user2].sort().join("_");
 };
 
-// Endpoint to get or create room
 app.post("/api/getRoomId", protect, (req, res) => {
   const { recipientId } = req.body;
 
@@ -158,19 +148,14 @@ app.post("/api/getRoomId", protect, (req, res) => {
   }
   const userId = req.user._id;
   const roomId = generateRoomId(userId, recipientId);
-  // console.log("roomId: ", roomId);
-
   res.status(200).json({ success: true, roomId });
 });
 
 msg91.initialize({ authKey: process.env.MSG91_AUTHKEY });
 
-// Socket.IO events
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
   let roomID;
-
-  // Join room
   socket.on("join_room", async (roomId) => {
     console.log("roomId: ", roomId);
     roomID = roomId;
@@ -193,7 +178,6 @@ io.on("connection", (socket) => {
     //   }
     // }
   });
-  // Handle message
   socket.on("sendMessage", async ({ roomId, sessionId, receiver, message }) => {
     console.log("roomId: ", roomId);
     console.log("sessionId: ", sessionId);
@@ -204,7 +188,6 @@ io.on("connection", (socket) => {
         console.log("rec chek");
         return socket.emit("error", { message: "Invalid receiver or message" });
       }
-      // Fetch sender user details (including role and active plan)
       const sender = await userModel
         .findById(socket.user._id)
         .populate("activePlan.planId");
@@ -212,9 +195,7 @@ io.on("connection", (socket) => {
       if (!sender) {
         return socket.emit("error", { message: "User not found" });
       }
-      // Check if the user is a customer
       if (sender.role === "customer") {
-        // Validate active plan
         if (!sender.activePlan || !sender.activePlan.planId) {
           console.log("plan errro");
           return socket.emit("error", {
@@ -223,7 +204,6 @@ io.on("connection", (socket) => {
           });
         }
         const { remainingMessages } = sender.activePlan;
-        // Check if the user has remaining messages
         console.log(
           "remamm",
           remainingMessages,
@@ -236,11 +216,9 @@ io.on("connection", (socket) => {
             message: "Your plan limit is exhausted. Please upgrade your plan.",
           });
         }
-        // Decrement remaining messages
         sender.activePlan.remainingMessages -= 1;
         await sender.save();
       }
-      // Save the chat message to the database
       console.log("now done");
       let chat = await Chat.create({
         sessionId: sessionId,
@@ -250,14 +228,11 @@ io.on("connection", (socket) => {
       });
       // await chat.save();
       console.log("chat", chat);
-      // Notify the room of the new message
       io.to(roomID).emit("receiveMessage", chat);
-      // Send Thank You Message ONLY when the session is ending or after a specific number of messages
       const sessionMessages = await Chat.countDocuments({ sessionId });
       if (sessionMessages === 1 || sessionMessages % 5 === 0) {
-        // Example: First message or every 5 messages
         const thankYouMessage = {
-          sender: "System", // Can be replaced with a system bot ID or astrologer's ID
+          sender: "System",
           message:
             "Thank you for trusting us! We hope our astrology services have brought positivity and clarity to your life. Wishing you a brighter future!",
           hindiMessage:
@@ -270,7 +245,6 @@ io.on("connection", (socket) => {
       socket.emit("error", { message: "Failed to send message" });
     }
   });
-  // Disconnect
   socket.on("disconnect", () => {
     console.log("User disconnected:", socket.id);
   });
@@ -279,35 +253,26 @@ io.on("connection", (socket) => {
 const handlePaymentCallback = async (req, res) => {
   try {
     const { merchantId, merchantTransactionId, transactionId } = req.body;
-
     console.log("Received payment callback:", req.body);
-
-    // Verify the payment status
     if (merchantId !== process.env.MERCHANT_ID) {
       console.error("Invalid merchant ID:", merchantId);
       return res.status(400).json({ message: "Invalid merchant ID" });
     }
-
     const appointment = await Appointment.findById(merchantTransactionId);
     if (!appointment) {
       console.error("Appointment not found:", merchantTransactionId);
       return res.status(404).json({ message: "Appointment not found" });
     }
-
     const convertedId = `MID${merchantTransactionId}`;
-
-    // Check payment status with PhonePe's status check API
     const checkStatusResponse = await checkPaymentStatus(
       merchantId,
       convertedId,
       appointment.createdBy.mobile
     );
-
     if (checkStatusResponse.success) {
       appointment.paymentStatus = checkStatusResponse.code;
       appointment.transactionId = transactionId;
       await appointment.save();
-
       res.json({ status: appointment.paymentStatus });
     } else {
       console.error("Payment verification failed:", checkStatusResponse);
@@ -326,17 +291,11 @@ const checkPaymentStatus = async (
 ) => {
   const saltKey = process.env.SALT_KEY;
   const saltIndex = process.env.SALT_INDEX;
-
-  // Construct the API endpoint for checking payment status
   const endpoint = `/pg/v1/status/${merchantId}/${merchantTransactionId}`;
-
-  // Correct the string format to match PhonePe's requirement
   const stringToHash = `${endpoint}${saltKey}${mobileNumber}`;
   const sha256 = crypto.createHash("sha256").update(stringToHash).digest("hex");
   const xVerify = `${sha256}###${saltIndex}`;
-
   try {
-    // Make a GET request to the PhonePe API
     const response = await axios.get(
       `https://api-preprod.phonepe.com/apis/pg-sandbox${endpoint}`,
       // `https://api.phonepe.com/apis/hermes/${endpoint}`,
@@ -358,7 +317,6 @@ const checkPaymentStatus = async (
   }
 };
 
-// Define the payment callback route
 app.post("/api/payment-callback", handlePaymentCallback);
 
 httpServer.listen(PORT, async () => {
