@@ -42,6 +42,7 @@ const {
 } = require("./middleware/authMiddleware.js");
 const enquiryRouter = require("./routes/enquiry.js");
 const userModel = require("./models/userModel.js");
+const Astrologer = require("./models/astrologerModel.js");
 
 const log = require("./utils/logger/logger.js").logger;
 
@@ -195,6 +196,8 @@ io.on("connection", (socket) => {
       if (!sender) {
         return socket.emit("error", { message: "User not found" });
       }
+      let userId = socket?.user?._id;
+      console.log("old user", userId);
       if (sender.role === "customer") {
         if (!sender.activePlan || !sender.activePlan.planId) {
           console.log("plan errro");
@@ -218,11 +221,20 @@ io.on("connection", (socket) => {
         }
         sender.activePlan.remainingMessages -= 1;
         await sender.save();
+      } else {
+        const checkAstrologer = await Astrologer.findOne({ userId: userId });
+        if (!checkAstrologer) {
+          return res
+            .status(404)
+            .json({ success: false, msg: "Astrologer not found" });
+        }
+        userId = checkAstrologer?._id;
+        console.log("astro Id", userId);
       }
-      console.log("now done");
+      console.log("now done", userId);
       let chat = await Chat.create({
         sessionId: sessionId,
-        sender: socket.user._id,
+        sender: userId,
         receiver: receiver,
         message: message,
       });
