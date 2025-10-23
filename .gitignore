@@ -9,6 +9,7 @@
 
 node_modules
 package-lock.json
+astrovani-firebase-adminsdk.json
 dist
 dist-ssr
 *.local
