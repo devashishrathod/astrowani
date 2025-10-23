@@ -1,15 +1,8 @@
 const admin = require("../firebase/firebaseAdmin");
-const Notification = require("../models/notificationModel");
 
-// Send FCM Message
 exports.sendMessage = async (title, message, fcmToken) => {
-  console.log("FCM TOKEN:>>>>>>>>>>>", fcmToken);
-  console.log("FCM TOKEN:>>>>>>>>>>>", fcmToken);
   const messageData = {
-    notification: {
-      title: title,
-      body: message,
-    },
+    notification: { title: title, body: message },
     token: fcmToken,
   };
   try {
@@ -21,31 +14,13 @@ exports.sendMessage = async (title, message, fcmToken) => {
   }
 };
 
-// Send Push Message on call
 exports.sendCallMessage = async (title, message, fcmToken, metadata) => {
   console.log("FCM TOKEN:>>>>>>>>>>>", fcmToken);
   const messageData = {
-    notification: {
-      title: title,
-      body: message,
-    },
-    android: {
-      notification: {
-        sound: "ringtone",
-        channelId: "calls",
-      },
-    },
-    apns: {
-      payload: {
-        aps: {
-          sound: "ringtone",
-        },
-      },
-    },
-    data: {
-      ...metadata,
-      type: "call",
-    },
+    notification: { title: title, body: message },
+    android: { notification: { sound: "ringtone", channelId: "calls" } },
+    apns: { payload: { aps: { sound: "ringtone" } } },
+    data: { ...metadata, type: "call" },
     token: fcmToken,
   };
   try {

@@ -239,7 +239,7 @@ io.on("connection", (socket) => {
         message: message,
       });
       // await chat.save();
-      console.log("chat", chat);
+      console.log("chat", chat, "Yeh h chat mere bhai chat ki hai humne");
       io.to(roomID).emit("receiveMessage", chat);
       const sessionMessages = await Chat.countDocuments({ sessionId });
       if (sessionMessages === 1 || sessionMessages % 5 === 0) {
