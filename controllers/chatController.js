@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const { updateSessionActivity } = require("../helpers/updateSessionActivity");
 const Astrologer = require("../models/astrologerModel");
 const Chat = require("../models/chatModel");
@@ -48,32 +49,22 @@ exports.getChatHistory = async (req, res) => {
 exports.getChatHistoryUser = async (req, res) => {
   try {
     console.log("req.query: ", req.query);
-    const { receiver, sessionId } = req.query;
+    let { receiver, sessionId } = req.query;
     let userId = req.user._id;
     console.log("userId Old", userId);
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({ success: false, msg: "User not found" });
     }
-    if (user?.role === "astrologer") {
-      const checkAstrologer = await Astrologer.findOne({ userId: userId });
-      if (!checkAstrologer) {
-        return res
-          .status(404)
-          .json({ success: false, msg: "Astrologer not found" });
-      }
-      userId = checkAstrologer?._id;
-    }
-    console.log("userId Old", userId);
+    receiver = new mongoose.Types.ObjectId(receiver);
+    console.log("receiver New", receiver);
     const matchCondition = {
       $or: [
         { sender: userId, receiver },
         { sender: receiver, receiver: userId },
       ],
     };
-    if (sessionId) {
-      matchCondition.sessionId = sessionId;
-    }
+    if (sessionId) matchCondition.sessionId = sessionId;
     console.log(matchCondition, "match");
     const chatHistory = await Chat.find(matchCondition).sort({ createdAt: 1 });
     console.log(chatHistory, "shbschattaaatttt");

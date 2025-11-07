@@ -221,15 +221,6 @@ io.on("connection", (socket) => {
         }
         sender.activePlan.remainingMessages -= 1;
         await sender.save();
-      } else {
-        const checkAstrologer = await Astrologer.findOne({ userId: userId });
-        if (!checkAstrologer) {
-          return res
-            .status(404)
-            .json({ success: false, msg: "Astrologer not found" });
-        }
-        userId = checkAstrologer?._id;
-        console.log("astro Id", userId);
       }
       console.log("now done", userId);
       let chat = await Chat.create({
@@ -238,7 +229,6 @@ io.on("connection", (socket) => {
         receiver: receiver,
         message: message,
       });
-      // await chat.save();
       console.log("chat", chat, "Yeh h chat mere bhai chat ki hai humne");
       io.to(roomID).emit("receiveMessage", chat);
       const sessionMessages = await Chat.countDocuments({ sessionId });
