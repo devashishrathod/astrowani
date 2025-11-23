@@ -45,11 +45,7 @@ const log = require("./utils/logger/logger.js").logger;
 const logger = log.getLogger("AppApi");
 
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
-  cors: {
-    origin: "*",
-  },
-});
+const io = new Server(httpServer, { cors: { origin: "*" } });
 connectDB();
 app.use(cors());
 app.use(morgan("dev"));
@@ -88,7 +84,7 @@ app.use((err, req, res, next) => {
 });
 
 app.get("/", async (req, res) => {
-  res.send("ASTROLOGY APP");
+  res.send("WELCOME TO ASTROWANI SERVER🚀❤️");
 });
 
 app.get("/health", (req, res) => {
