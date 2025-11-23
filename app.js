@@ -10,6 +10,9 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 4500;
 const connectDB = require("./config/dbConnection.js");
+const userModel = require("./models/userModel.js");
+const Chat = require("./models/chatModel.js");
+
 const userRoutes = require("./routes/userRoutes.js");
 const categoryRoutes = require("./routes/categoryRoutes.js");
 const blogRoutes = require("./routes/blogRoutes.js");
@@ -35,17 +38,10 @@ const astrologerRequestRoutes = require("./routes/astrologerRequestRoutes.js");
 const freeServicesRoutes = require("./routes/FreeServices/freeServicesRoutes.js");
 const astroServicesRoutes = require("./routes/astroServices/astroServicesRoutes.js");
 const audioVidedoCallingRoutes = require("./routes/audioVideoCallingRoute.js");
-const Chat = require("./models/chatModel.js");
-const {
-  protect,
-  socketAuthenticator,
-} = require("./middleware/authMiddleware.js");
 const enquiryRouter = require("./routes/enquiry.js");
-const userModel = require("./models/userModel.js");
-const Astrologer = require("./models/astrologerModel.js");
 
+const { socketAuthenticator } = require("./middleware/authMiddleware.js");
 const log = require("./utils/logger/logger.js").logger;
-
 const logger = log.getLogger("AppApi");
 
 const httpServer = createServer(app);
@@ -103,7 +99,6 @@ function onError(error) {
   if (error.syscall !== "listen") {
     throw error;
   }
-
   const bind = typeof PORT === "string" ? `Pipe ${PORT}` : `PORT ${PORT}`;
   switch (error.code) {
     case "EACCES":
@@ -139,29 +134,17 @@ const generateRoomId = (user1, user2) => {
   return [user1, user2].sort().join("_");
 };
 
-app.post("/api/getRoomId", protect, (req, res) => {
-  const { recipientId } = req.body;
-
-  if (!recipientId) {
-    return res
-      .status(400)
-      .json({ success: false, message: "User IDs are required" });
-  }
-  const userId = req.user._id;
-  const roomId = generateRoomId(userId, recipientId);
-  res.status(200).json({ success: true, roomId });
-});
-
 msg91.initialize({ authKey: process.env.MSG91_AUTHKEY });
 
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
-  let roomID;
-  socket.on("join_room", async (roomId) => {
+  socket.on("join_room", async (recipient) => {
+    const userId = socket.user._id;
+    console.log(userId, recipient, "rommmm Id");
+    const roomId = generateRoomId(userId, recipient.receiverId);
     console.log("roomId: ", roomId);
-    roomID = roomId;
-    socket.join(roomID);
-    console.log(`Socket ${socket.id} joined users room-id ${roomID}`);
+    socket.join(roomId);
+    console.log(`Socket ${socket.id} joined users room-id ${roomId}`);
     // Fetch the user's role and details (assuming socket.user is set via authentication middleware)
     // const user = await userModel.findById(socket.user._id);
     // if (user) {
@@ -174,8 +157,7 @@ io.on("connection", (socket) => {
     //       hindiMessage:
     //         "एस्ट्रो में आपका स्वागत है! हमारे विशेषज्ञ ज्योतिषी आपको ग्रहों व नक्षत्रों के माध्यम से मार्गदर्शन करने के लिए तैयार हैं।",
     //     };
-
-    //     io.to(roomID).emit("receiveMessage", welcomeMessage);
+    //     socket.to(roomId).emit("receiveMessage", welcomeMessage);
     //   }
     // }
   });
@@ -230,18 +212,18 @@ io.on("connection", (socket) => {
         message: message,
       });
       console.log("chat", chat, "Yeh h chat mere bhai chat ki hai humne");
-      io.to(roomID).emit("receiveMessage", chat);
-      const sessionMessages = await Chat.countDocuments({ sessionId });
-      if (sessionMessages === 1 || sessionMessages % 5 === 0) {
-        const thankYouMessage = {
-          sender: "System",
-          message:
-            "Thank you for trusting us! We hope our astrology services have brought positivity and clarity to your life. Wishing you a brighter future!",
-          hindiMessage:
-            "हम पर विश्वास करने के लिए धन्यवाद! हमें आशा है कि हमारी ज्योतिष सेवाएं आपके जीवन में सकारात्मकता और स्पष्टता लाएंगी। आपका भविष्य उज्ज्वल हो!",
-        };
-        io.to(roomID).emit("receiveMessage", thankYouMessage);
-      }
+      socket.to(roomId).emit("receiveMessage", chat);
+      // const sessionMessages = await Chat.countDocuments({ sessionId });
+      // if (sessionMessages === 1 || sessionMessages % 5 === 0) {
+      //   const thankYouMessage = {
+      //     sender: "System",
+      //     message:
+      //       "Thank you for trusting us! We hope our astrology services have brought positivity and clarity to your life. Wishing you a brighter future!",
+      //     hindiMessage:
+      //       "हम पर विश्वास करने के लिए धन्यवाद! हमें आशा है कि हमारी ज्योतिष सेवाएं आपके जीवन में सकारात्मकता और स्पष्टता लाएंगी। आपका भविष्य उज्ज्वल हो!",
+      //   };
+      //   socket.to(roomId).emit("receiveMessage", thankYouMessage);
+      // }
     } catch (error) {
       console.error("Error saving chat message:", error);
       socket.emit("error", { message: "Failed to send message" });
