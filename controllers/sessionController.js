@@ -1,9 +1,5 @@
 const Session = require("../models/sessionModel");
 const Astrologer = require("../models/astrologerModel");
-const Chat = require("../models/chatModel");
-const CallHistory = require("../models/CallHistory");
-const User = require("../models/userModel");
-const mongoose = require("mongoose");
 
 // // Session management
 // const sessionController = {
@@ -238,9 +234,6 @@ const mongoose = require("mongoose");
 
 // module.exports = sessionController;
 
-// @desc    Create a new session
-// @route   POST /api/sessions
-// @access  Private
 exports.createSession = async (req, res, next) => {
   const {
     sessionType,
@@ -267,9 +260,7 @@ exports.createSession = async (req, res, next) => {
     res.status(500).json({ success: false, error: error.message });
   }
 };
-// @desc    Get session history for an astrologer or client
-// @route   GET /api/sessions
-// @access  Private
+
 exports.getSessions = async (req, res, next) => {
   try {
     const { limit = 10, offset = 0, sessionType } = req.query;
@@ -303,56 +294,40 @@ exports.getSessions = async (req, res, next) => {
   }
 };
 
-// @desc    Update a session's details (e.g., mark as completed)
-// @route   PUT /api/sessions/:id
-// @access  Private
 exports.updateSession = async (req, res, next) => {
   const { endTime, status, isPaid } = req.body;
   const sessionId = req.params.id;
-
   try {
     const session = await Session.findById(sessionId);
-
     if (!session) {
       return res
         .status(404)
         .json({ success: false, message: "Session not found" });
     }
-
-    // Update session details
     session.endTime = endTime || session.endTime;
     session.status = status || session.status;
     session.isPaid = isPaid !== undefined ? isPaid : session.isPaid;
-
-    // Calculate duration and total charge if session is completed
     if (session.endTime && session.status === "completed") {
       session.duration =
-        (new Date(session.endTime) - new Date(session.startTime)) / 60000; // in minutes
+        (new Date(session.endTime) - new Date(session.startTime)) / 60000;
       session.totalCharge = session.duration * session.chargePerMinute;
-      session.earnings = session.totalCharge; // You can adjust this if there's a commission
+      session.earnings = session.totalCharge;
     }
-
     const updatedSession = await session.save();
-
     res.status(200).json({ success: true, data: updatedSession });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 };
 
-// @desc    Delete a session
-// @route   DELETE /api/sessions/:id
-// @access  Private
 exports.deleteSession = async (req, res, next) => {
   try {
     const session = await Session.findByIdAndDelete(req.params.id);
-
     if (!session) {
       return res
         .status(404)
         .json({ success: false, message: "Session not found" });
     }
-
     res.status(200).json({ success: true, message: "Session deleted" });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
@@ -361,7 +336,7 @@ exports.deleteSession = async (req, res, next) => {
 
 exports.getConnectedClients = async (req, res) => {
   try {
-    const astrologerId = req.user._id; // Assuming astrologerId is obtained from the authentication middleware
+    const astrologerId = req.user._id;
     console.log("astrologerId", astrologerId);
     const checkAstrologer = await Astrologer.findOne({ userId: astrologerId });
     if (!checkAstrologer) {
@@ -369,24 +344,20 @@ exports.getConnectedClients = async (req, res) => {
         .status(404)
         .json({ success: false, msg: "Astrologer not found" });
     }
-    // Aggregate sessions and join with client details
     const sessionsWithClientDetails = await Session.aggregate([
-      {
-        $match: { astrologerId: checkAstrologer?._id }, // Filter sessions for the given astrologer
-      },
+      { $match: { astrologerId, status: "ongoing" } },
       {
         $lookup: {
-          from: "users", // Assuming your users collection is named 'users'
+          from: "users",
           localField: "clientId",
           foreignField: "_id",
           as: "clientDetails",
         },
       },
-      {
-        $unwind: "$clientDetails", // Unwind to flatten the array of client details
-      },
+      { $unwind: "$clientDetails" },
       {
         $project: {
+          _id: 0,
           sessionId: "$_id",
           sessionType: 1,
           duration: 1,
@@ -394,7 +365,7 @@ exports.getConnectedClients = async (req, res) => {
           startTime: 1,
           endTime: 1,
           price: 1,
-          clientId: "$customerId",
+          clientId: "$clientDetails._id",
           firstName: "$clientDetails.firstName",
           lastName: "$clientDetails.lastName",
           email: "$clientDetails.email",
@@ -415,25 +386,19 @@ exports.getConnectedClients = async (req, res) => {
 
 exports.getConnectedAstrologers = async (req, res) => {
   try {
-    const clientId = req.user._id; // Assuming clientId is obtained from the authentication middleware
+    const clientId = req.user._id;
     console.log("clientId", clientId);
-
-    // Aggregate sessions and join with astrologer details
     const sessionsWithAstrologerDetails = await Session.aggregate([
-      {
-        $match: { customerId: clientId }, // Filter sessions for the given client
-      },
+      { $match: { clientId, status: "ongoing" } },
       {
         $lookup: {
-          from: "users", // Assuming your users collection is named 'users'
+          from: "users",
           localField: "astrologerId",
           foreignField: "_id",
           as: "astrologerDetails",
         },
       },
-      {
-        $unwind: "$astrologerDetails", // Unwind to flatten the array of astrologer details
-      },
+      { $unwind: "$astrologerDetails" },
       {
         $project: {
           sessionId: "$_id",
@@ -451,7 +416,6 @@ exports.getConnectedAstrologers = async (req, res) => {
         },
       },
     ]);
-
     res.status(200).json({
       success: true,
       data: sessionsWithAstrologerDetails,
@@ -464,29 +428,21 @@ exports.getConnectedAstrologers = async (req, res) => {
   }
 };
 
-// Get all sessions by clientId with optional pagination
 exports.getSessionsByClientId = async (req, res) => {
   try {
-    const { clientId } = req.params; // Client ID from request parameters
-    const { page = 1, limit = 10 } = req.query; // Pagination parameters (default: page 1, limit 10)
-
-    // Validate clientId
+    const { clientId } = req.params;
+    const { page = 1, limit = 10 } = req.query;
     if (!clientId) {
       return res.status(400).json({ error: "Client ID is required." });
     }
-
-    // Fetch sessions from the database
     const sessions = await Session.find({ clientId })
-      .sort({ createdAt: -1 }) // Sort by most recent
-      .skip((page - 1) * limit) // Pagination: skip items
-      .limit(parseInt(limit)) // Limit the number of items
-      .populate("astrologerId", "name") // Populate astrologer details (optional)
-      .populate("clientId", "name") // Populate client details (optional)
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * limit)
+      .limit(parseInt(limit))
+      .populate("astrologerId", "name")
+      .populate("clientId", "name")
       .exec();
-
-    // Count total sessions for pagination metadata
     const totalSessions = await Session.countDocuments({ clientId });
-
     res.status(200).json({
       success: true,
       data: sessions,
