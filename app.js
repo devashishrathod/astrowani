@@ -11,6 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 4500;
 const connectDB = require("./config/dbConnection.js");
 const userModel = require("./models/userModel.js");
+const Appointment = require("./models/appointmentModel.js");
 const Chat = require("./models/chatModel.js");
 
 const userRoutes = require("./routes/userRoutes.js");
@@ -247,7 +248,7 @@ const handlePaymentCallback = async (req, res) => {
     const checkStatusResponse = await checkPaymentStatus(
       merchantId,
       convertedId,
-      appointment.createdBy.mobile
+      appointment.userId.phoneNumber
     );
     if (checkStatusResponse.success) {
       appointment.paymentStatus = checkStatusResponse.code;

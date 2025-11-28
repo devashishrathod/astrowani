@@ -1,14 +1,11 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const config = require("../config/config");
 
 const UserSchema = new mongoose.Schema(
   {
     email: {
       type: String,
-      // required: [true, "Please provide an email"],
-      // unique: true,
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
         "Please provide a valid email",
@@ -18,7 +15,6 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [
         function () {
-          // Password is required only if the role is 'admin'
           return this.role === "admin";
         },
         "Password is required for admin users.",
@@ -31,12 +27,8 @@ const UserSchema = new mongoose.Schema(
       enum: ["customer", "admin", "astrologer"],
       default: "customer",
     },
-    firstName: {
-      type: String,
-    },
-    lastName: {
-      type: String,
-    },
+    firstName: { type: String },
+    lastName: { type: String },
     gender: {
       type: String,
       enum: ["male", "female", "other"],
@@ -47,10 +39,7 @@ const UserSchema = new mongoose.Schema(
     phoneNumber: String,
     profilePic: String,
     favoriteAstrologer: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Astrologer",
-      },
+      { type: mongoose.Schema.Types.ObjectId, ref: "Astrologer" },
     ],
     address: {
       city: String,
@@ -58,20 +47,9 @@ const UserSchema = new mongoose.Schema(
       location: String,
       State: String,
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
-    otp: {
-      code: String,
-      expiresAt: Date,
-    },
-    fcm: {
-      type: String,
-    },
-    mobile: {
-      type: Number,
-    },
+    isVerified: { type: Boolean, default: false },
+    otp: { code: String, expiresAt: Date },
+    fcm: { type: String },
     activePlan: {
       planId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -82,20 +60,14 @@ const UserSchema = new mongoose.Schema(
       remainingMessages: { type: Number, default: 0 },
       remainingSize: { type: Number, default: 0 }, // KB
     },
-    online: {
-      type: Boolean,
-      default: false,
-    },
+    online: { type: Boolean, default: false },
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 );
 
-UserSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
+UserSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
 UserSchema.methods.matchPassword = async function (enteredPassword) {
@@ -104,7 +76,6 @@ UserSchema.methods.matchPassword = async function (enteredPassword) {
 
 UserSchema.methods.getSignedJwtToken = function (options = {}) {
   const { expiresIn, secret } = options;
-
   return jwt.sign({ id: this._id, role: this.role }, secret, { expiresIn });
 };
 

@@ -1,4 +1,3 @@
-// emailHelper.js
 const nodemailer = require("nodemailer");
 const config = require("../config/config");
 
@@ -10,7 +9,6 @@ exports.sendEmail = async (to, subject, html) => {
       pass: config.NODEMAILER_PASSWORD,
     },
   });
-
   await transporter.sendMail({
     from: config.NODEMAILER_EMAIL,
     to,
